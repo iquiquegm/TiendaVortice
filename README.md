@@ -18,3 +18,6 @@ La base de datos incluye el catálogo de modelos, colores y precios. El inventar
 CLIP
 Para la interface con la pasarela, se usa el EMBEDED CHECKOUT para simplificar el proceso de la compra.
 
+IMAGENES
+Imágenes con transparencia para habilitar el color por medio de JAVASCRIPT. Se necesita una imagen por cada modelo de termo.
+
