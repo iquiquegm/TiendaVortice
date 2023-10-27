@@ -1,0 +1,26 @@
+REQUISITOS:
+    ✔ Base de datos @done (26/10/2023, 17:42:48)
+    ✔ Pruebas de colores en fotos. @done (26/10/2023, 18:18:22)
+    Imágenes
+        ☐ Termos
+        ☐ Colores
+    ☐ Inventario
+    ☐ Precios
+ACTIVIDADES:
+    ☐ Flujo de trabajo
+    ☐ Diseño de Interfase
+    ☐ Crear base de datos
+    ☐ Subir elementos gráficos
+    ☐ Cargar elementos de la interface
+    ☐ Selección de modelo
+    ☐ Seleccionar color
+    ☐ Seleccionar número de grabados
+    ☐ Configurar grabado 1
+    ☐ Configurar grabado 2
+    ☐ Crear carrito
+    ☐ Agregar producto
+    ☐ Ajustar totales
+    ☐ Capturar datos del cliente
+    ☐ Hacer pago
+    ☐ Actualizar inventario
+    ☐ Enviar confirmación
