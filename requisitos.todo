@@ -6,12 +6,12 @@ REQUISITOS:
         ☐ Colores
         ☐ Banner tienda
 
-    ☐ Inventario
-    ☐ Precios
+    ✔ Inventario @done (31/10/2023, 12:36:37)
+    ✔ Precios @done (31/10/2023, 12:36:33)
 ACTIVIDADES:
     ☐ Flujo de trabajo
     ☐ Diseño de Interfase
-    ☐ Crear base de datos
+    ✔ Crear base de datos @done (31/10/2023, 12:35:06)
     ☐ Subir elementos gráficos
     ☐ Cargar elementos de la interface
     ☐ Selección de modelo
