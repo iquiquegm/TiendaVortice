@@ -4,13 +4,13 @@ REQUISITOS:
     Imágenes
         ☐ Termos
         ☐ Colores
-        ☐ Banner tienda
+        ✔ Banner tienda @done (7/11/2023, 9:09:34)
 
     ✔ Inventario @done (31/10/2023, 12:36:37)
     ✔ Precios @done (31/10/2023, 12:36:33)
 ACTIVIDADES:
-    ☐ Flujo de trabajo
-    ☐ Diseño de Interfase
+    ✔ Flujo de trabajo @done (7/11/2023, 10:28:06)
+    ✔ Diseño de Interfase @done (7/11/2023, 10:28:04)
     ✔ Crear base de datos @done (31/10/2023, 12:35:06)
     ☐ Subir elementos gráficos
     ☐ Cargar elementos de la interface
