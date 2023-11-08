@@ -1,0 +1,13 @@
+
+@font-face {
+    font-family: 'wartext';
+    src: url("wartext.ttf") format('truetype');
+         
+}
+
+body {
+    font-family: wartext;
+    background-color: black;
+    color: turquoise;
+    text-shadow: 0px 0px 7px turquoise;
+}
