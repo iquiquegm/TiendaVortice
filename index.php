@@ -64,19 +64,55 @@
                 <option class="campotexto" nombre="<?php echo $producto['nombre'];?>"value="<?php echo $producto['id'];?>"><?php echo $producto['descripcion'];?></option>
             <?php }?>
         </select>
-        <img src="imagenes/LogoVortice.png" height="200px" id="imagenProducto">
+        <img src="imagenes/LogoVortice.png" height="200px" id="imagenProducto" onchange="actualizaColores()">
+
+        <?php
+
+            foreach ($colores as $valorColor) {
+             
+                echo '<div class="color" id="color' . $valorColor['id'] . '"style="width:50px; height:50px;background:#'. $valorColor['valor'] . ';border-radius:50%;display:block;">0</div>';
+       
+            }
+
+        ?>
+        
+       
+            
+       
         
     </form>
 
     <script>
             function cambiaImagen(){
-                console.log("Funcion");
+
+                //Cambio de Imagen
+                console.log("Imagen");
                 var nuevaImagen = document.getElementById("selector");
-                imagen = document.getElementById("imagenProducto");
-                nombre = <?php echo json_encode($productos); ?>;
+                var productoSeleccionado = nuevaImagen.selectedOptions[0].value;
+                var imagen = document.getElementById("imagenProducto");
+                var nombre = <?php echo json_encode($productos); ?>;
                 console.log(nombre[(nuevaImagen.selectedOptions[0].value) - 1].nombre);
-                imagen.src = "imagenes/" + nombre[(nuevaImagen.selectedOptions[0].value) - 1].nombre + ".png";
+                imagen.src = "imagenes/" + nombre[productoSeleccionado - 1].nombre + ".png";
+
+                //Cambio de Colores
+                console.log("Colores");
+                var modelo = <?php echo json_encode($existencias); ?>;
+                var color = <?php echo json_encode($colores); ?>;
+                document.querySelectorAll('.color').forEach(function(el) {
+                el.style.display = 'none';
+                });
+                modelo.forEach(function(modeloActual) {
+                    console.log(modeloActual.id_producto);
+                    console.log(productoSeleccionado);
+                    if (modeloActual.id_producto == productoSeleccionado) {
+                        var identificador = "color" + modeloActual.id_color;
+                        console.log(identificador);
+                        document.getElementById(identificador).style.display='block';
+                        document.getElementById(identificador).innerHTML = modeloActual.cantidad;
+                    }
+                });
             }
+
     </script>
 </body>
 </html>
