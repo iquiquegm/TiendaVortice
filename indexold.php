@@ -76,7 +76,26 @@
        
             }
 
+
+
+           
         ?>
+ <select name="numeroGrabados" id="numeroGrabados">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+
+            <div id="precioProducto">$0.00</div>
+
+
+        <!-- captura del primer grabado -->
+        <div class="grabados" id="grabado1">
+            <textarea name="texto1" id="texto1" cols="30" rows="10" placeholder="Escriba la descripción."></textarea>
+            <input type="file" name="imagen1" id="imagen1" accept="image"onchange="actualizaImagen('imagenSeleccionada1','imagen1')">
+            <input type="button" value="Borrar Imagen" id="borraImagen" onclick="quitaImagen('imagen1', 'imagenSeleccionada1')">
+            <img src="" id="imagenSeleccionada1" width="300px">
+        </div>
         
        
             
@@ -85,11 +104,40 @@
     </form>
 
     <script>
+        precioTermo = document.getElementById(precioProducto).innerHTML;
 
 nombre = <?php echo json_encode($productos); ?>;
 modelo = <?php echo json_encode($existencias); ?>;
 color = <?php echo json_encode($colores); ?>;
 
+    function quitaImagen(imagen,fuente) {
+        document.getElementById(imagen).value = [];
+        document.getElementById(fuente).src = "";
+        console.log("Borrado");
+    }
+
+    function actualizaImagen(imagen, selector){
+        console.log(imagen + ", " + selector);
+
+        const imageUpload = document.getElementById(selector);
+        const imagePreview = document.getElementById(imagen);
+
+const file = imageUpload.files[0];
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        imagePreview.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      console.log('Invalid file type:', file.type);
+    }
+
+
+
+        // document.getElementById(imagen).src = document.getElementById(selector).value;
+        console.log(document.getElementById(imagen).src);
+    }
 
    function cambiaImagen(){
  
@@ -122,7 +170,7 @@ function seleccionaProducto(id) {
     var nuevaImagen = document.getElementById("selector");
     var productoSeleccionado = nuevaImagen.selectedOptions[0].value;
     console.log(nombre[productoSeleccionado - 1].descripcion);
-    var colorSeleccionado = color[id].nombre;
+    var colorSeleccionado = color[id -1].nombre;
     console.log(colorSeleccionado + id);
 }
 
