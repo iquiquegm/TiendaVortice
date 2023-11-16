@@ -1,0 +1,27 @@
+IDs 
+    Forma = formaCompra
+    Imagen del Modelo = imagenModelo
+    Selector de Modelo = selectorModelo
+    Circulo de Color = color+#
+    Cantidad en el Color = cantidadColor+#
+    Datos de la Selección = informacionSeleccionado
+    Precio de la Selección = precioSeleccionado
+    Selector de Numero de Grabados = selectorGrabados
+    Descripción Grabado 1 = descripcion1
+    Selector de Imagen Local 1 = rutaImagenSeleccionada1
+    Imagen Local Seleccionada 2 = imagenLocal1
+    Selector de Imagen Local 2 = rutaImagenSeleccionada2
+    Imagen Local Seleccionada 2 = imagenLocal2
+    Botón Agregar a Carrito = botonAgregar
+
+
+CLASES
+    Circulo de color = muestraColor
+    Cantidad en el color = cantidadColor
+    
+VARIABLES PHP
+    Lista de Modelos = $productos
+    Existencias de Modelos = $Existencias
+
+VARIABLES JAVASCRIPT
+    

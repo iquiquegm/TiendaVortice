@@ -160,13 +160,15 @@ const file = imageUpload.files[0];
         if (modeloActual.id_producto == productoSeleccionado) {
             var identificador = modeloActual.id_color;
             console.log(identificador);
-            document.getElementById(identificador).style.display='block';
-            document.getElementById(identificador).innerHTML = modeloActual.cantidad;
+            infoSeleccion = document.getElementById(identificador);
+            infoSeleccion.style.display='block';
+            infoSeleccion.innerHTML = modeloActual.cantidad;
         }
     });
 }
 
 function seleccionaProducto(id) {
+    console.log("Seleccion de Color");
     var nuevaImagen = document.getElementById("selector");
     var productoSeleccionado = nuevaImagen.selectedOptions[0].value;
     console.log(nombre[productoSeleccionado - 1].descripcion);

@@ -2,21 +2,22 @@ REQUISITOS:
     ✔ Base de datos @done (26/10/2023, 17:42:48)
     ✔ Pruebas de colores en fotos. @done (26/10/2023, 18:18:22)
     Imágenes
-        ☐ Termos
-        ☐ Colores
+        ✔ Termos @done (15/11/2023, 11:46:08)
+        ✔ Colores @done (15/11/2023, 11:46:09)
         ✔ Banner tienda @done (7/11/2023, 9:09:34)
 
     ✔ Inventario @done (31/10/2023, 12:36:37)
     ✔ Precios @done (31/10/2023, 12:36:33)
 ACTIVIDADES:
-    ✔ Flujo de trabajo @done (7/11/2023, 10:28:06)
-    ✔ Diseño de Interfase @done (7/11/2023, 10:28:04)
-    ✔ Crear base de datos @done (31/10/2023, 12:35:06)
-    ☐ Subir elementos gráficos
-    ☐ Cargar elementos de la interface
-    ✔ Selección de modelo @done (8/11/2023, 11:53:30)
-    ✔ Seleccionar color @done (13/11/2023, 11:19:59)
-    ✔ Seleccionar número de grabados @done (13/11/2023, 18:14:59)
+    ✔ Flujo de trabajo @done (15/11/2023, 11:46:29)
+    ✔ Diseño de Interfase @done (16/11/2023, 17:44:37)
+    ✔ Crear base de datos @done (15/11/2023, 11:46:34)
+    ✔ Subir elementos gráficos @done (15/11/2023, 11:46:35)
+    ✔ Cargar elementos de la interface @done (15/11/2023, 11:46:38)
+    ✔ Selección de modelo @done (15/11/2023, 12:50:13)
+    ✔ Actualizar Imagen @done (15/11/2023, 18:16:05)
+    ✔ Seleccionar color @done (16/11/2023, 11:20:37)
+    ✔ Seleccionar número de grabados @done (16/11/2023, 17:15:29)
     ☐ Actualizar Precio
     ☐ Configurar grabado 1
     ☐ Configurar grabado 2
