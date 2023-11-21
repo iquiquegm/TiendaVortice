@@ -8,55 +8,9 @@ function consola($data) {
     echo "<script>console.log('PHP: " . $output . "' );</script>";
 }
 
-//CONEXION A BASE DE DATOS
-$servername = "localhost";
-$username = "enrique";
-$password = "3nri9u3";
-$dbname = "tienda";
+include "conector.php";
+include "bases.php";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Fallo de conexión: ". $conn->connect_error);
-}
-consola ("Conexión exitosa.");
-
-//LECTURA DE BASES DE DATOS
-
-// PRODUCTOS
-  $sql = "SELECT * FROM productos";
-  $result = $conn->query($sql);
-  $productos = array();
-  if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-          $productos[] = $row;
-  }
-  }
-  consola("Productos leídos con éxito.");
-  
-  // EXISTENCIAS
-  $sql = "SELECT * FROM inventario";
-  $result = $conn->query($sql);
-  $existencias = array();
-  if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-          $existencias[] = $row;
-  }
-  }
-  consola("Existencias leídas con éxito.");
-
-  // COLORES
-  $sql = "SELECT * FROM colores";
-  $result = $conn->query($sql);
-  $colores = array();
-  if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-          $colores[] = $row;
-  }
-  }
-  consola("Colores leídos con éxito.");
 ?>
 
 <!-- ENCABEZADO DE LA PAGINA -->
@@ -133,84 +87,29 @@ consola ("Conexión exitosa.");
    </form>
 
    <!-- JAVASCRIPT -->
+
+   <script src="main.js"></script>
    <script>
 
     //VARIABLES GLOBALES
     productos = <?php echo json_encode($productos); ?>;
     existencias = <?php echo json_encode($existencias); ?>;
     colores = <?php echo json_encode($colores); ?>;
+    grabados = <?php echo json_encode($grabados); ?>;
     colorFinal = "";
     modeloFinal = "";
     grabadosFinal ="";
+    precioFinal = 0;
+    precioModelo = 0;
+    precioGrabado = 0;
     infoFinal = document.getElementById("informacionSeleccionado");
     
     //SELECTOR DE EVENTOS
     document.getElementById("selectorModelo").addEventListener("change", function() {cambiaImagen();});
     document.getElementById("selectorModelo").addEventListener("change", function() {actualizaColores();});
-    document.getElementById("selectorGrabados").addEventListener("change", function() {seccionesGrabado();});
-
-
-    // FUNCIONES
-
-    // CAMBIA LA IMAGEN DEL PRODUCTO
-    function cambiaImagen(){
-        console.log("Cambio de imagen");
-        selector = document.getElementById("selectorModelo");
-        idProducto = selector.selectedOptions[0].value;
-        imagen = document.getElementById("imagenModelo");
-        imagen.src = "imagenes/" + productos[idProducto - 1].nombre + ".png";
-        modeloFinal = productos[idProducto].descripcion;
-        infoFinal.innerHTML = modeloFinal;
-        if (grabadosFinal != "") {
-            infoFinal.innerHTML = infoFinal.innerHTML + ", Número de Grabados: " + grabadosFinal;
-        }
-        infoFinal.style.display = "block";
-    }
-
-    //ACTUALIZA EL CATALOGO DE COLORES
-    function actualizaColores(){
-    console.log("Actualización de colores.");
-    modeloSeleccionado = selector.selectedOptions[0].value;
-    document.querySelectorAll(".muestraColor").forEach(function(color) {
-        color.style.display = "none";
-    });
-    existencias.forEach(function(modelo) {
-        if (modelo.id_producto == modeloSeleccionado) {
-            colorModelo = modelo.id_color;
-            document.getElementById(colorModelo).style.display = "inline-block";
-            document.getElementById("cantidad" + colorModelo).innerHTML = modelo.cantidad;
-        }
-    });
-    }
-
-    //SELECCIONA COLOR
-    function seleccionaColor(idColor) {
-        console.log("Seleccion de Color.");
-        colorFinal = colores[idColor -1].nombre;
-        infoFinal.innerHTML = modeloFinal + ", " + colorFinal;
-    }
-
-    //VISUALIZADOR DE SECCIONES DE GRABADO
-    function seccionesGrabado() {
-        selector = document.getElementById("selectorGrabados");
-        numeroGrabados = selector.selectedOptions[0].value;
-        switch(numeroGrabados){
-            case "0":
-                document.getElementById("informacionGrabado1").style.display = "none";
-                document.getElementById("informacionGrabado2").style.display = "none";
-                break;
-            case "1":
-                document.getElementById("informacionGrabado1").style.display = "block";
-                document.getElementById("informacionGrabado2").style.display = "none";
-                break;
-            case "2":
-                document.getElementById("informacionGrabado1").style.display = "block";
-                document.getElementById("informacionGrabado2").style.display = "block";
-                break;
-        }
-        grabadosFinal = numeroGrabados;
-        infoFinal.innerHTML = modeloFinal + ", " + colorFinal + ", Número de Grabados: " + grabadosFinal;
-    }
+    document.getElementById("selectorModelo").addEventListener("change", function() {actualizaPrecios();});
+    document.getElementById("selectorGrabados").addEventListener("change", function() {seccionesGrabado();});   
+    document.getElementById("selectorGrabados").addEventListener("change", function() {actualizaPrecios();});   
    </script>
 </body>
 </html>
