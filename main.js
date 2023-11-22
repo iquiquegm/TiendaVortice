@@ -14,6 +14,7 @@
             infoFinal.innerHTML = infoFinal.innerHTML + ", Número de Grabados: " + grabadosFinal;
         }
         infoFinal.style.display = "block";
+        document.getElementById("selectorGrabados").style.display = "block";
     }
 
     //ACTUALIZA EL CATALOGO DE COLORES
@@ -70,4 +71,28 @@
         precioFinal = precioModelo + precioGrabado;
         textoPrecio = "$" + precioFinal + ".00";
         document.getElementById("precioSeleccionado").innerHTML = textoPrecio;
+    }
+
+    //ACTUALIZA LA IMAGEN DEL GRABADO
+    function actualizaImagenGrabado(selector, imagen) {
+        console.log("Actualiza Imagen de Grabado");
+        imagenSubir = document.getElementById(selector);
+        imagenVistaPrevia = document.getElementById(imagen);
+        archivo = imagenSubir.files[0];
+        if (archivo && archivo.type.startsWith("image/")) {
+            lector = new FileReader();
+            lector.onload =() => {
+                imagenVistaPrevia.src = lector.result;
+            };
+            lector.readAsDataURL(archivo);
+        } else {
+            console.log("Tipo de archivo no válido.");
+        }
+    }
+
+    //BORRA IMAGEN DE GRABADO
+    function borraImagenGrabado(fuente, imagen) {
+        console.log("Borra imagen de grabado.");
+        document.getElementById(fuente).value = [];
+        document.getElementById(imagen).src = "imagenes/LogoVortice.png";
     }

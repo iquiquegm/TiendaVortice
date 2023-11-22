@@ -53,18 +53,18 @@ include "bases.php";
     }
    ?>
    <!-- SELECTOR DE NUMERO DE GRABADOS -->
-   <select name="Grabados" id="selectorGrabados">
+   <select name="Grabados" id="selectorGrabados" style="display:none; ">
     <option value="0">0</option>
     <option value="1">1</option>
     <option value="2">2</option>
    </select>
 
-   <!-- CAPTURA DE DATOS DE GRABADO 2 -->
+   <!-- CAPTURA DE DATOS DE GRABADO 1 -->
    <div id="informacionGrabado1" style="display:none;">
     <textarea name="Descrippcion1" id="descripcion1" cols="30" rows="10" placeholder="Escriba la descripción de su grabado."></textarea>
     <input type="file" name="ImagenLocal1" id="rutaImagenLocal1" accept="image">
     <img src="imagenes/LogoVortice.png" alt="Imagen 1" id="imagenLocal1" width="100px">
-    <input type="button" value="Borrar">    
+    <input type="button" value="Borrar" id = "borraImagen1">    
    </div>
 
    <!-- CAPTURA DE DATOS DE GRABADO 2 -->
@@ -72,7 +72,7 @@ include "bases.php";
     <textarea name="Descrippcion2" id="descripcion2" cols="30" rows="10" placeholder="Escriba la descripción de su grabado."></textarea>
     <input type="file" name="ImagenLocal2" id="rutaImagenLocal2" accept="image">
     <img src="imagenes/LogoVortice.png" alt="Imagen 2" id="imagenLocal2" width="100px">
-    <input type="button" value="Borrar">
+    <input type="button" value="Borrar" id = "borraImagen2">
    </div>
 
    <!-- FORMA A SER ENVIADA -->
@@ -108,8 +108,12 @@ include "bases.php";
     document.getElementById("selectorModelo").addEventListener("change", function() {cambiaImagen();});
     document.getElementById("selectorModelo").addEventListener("change", function() {actualizaColores();});
     document.getElementById("selectorModelo").addEventListener("change", function() {actualizaPrecios();});
-    document.getElementById("selectorGrabados").addEventListener("change", function() {seccionesGrabado();});   
-    document.getElementById("selectorGrabados").addEventListener("change", function() {actualizaPrecios();});   
+    document.getElementById("selectorGrabados").addEventListener("change", function() {seccionesGrabado();});
+    document.getElementById("selectorGrabados").addEventListener("change", function() {actualizaPrecios();});
+    document.getElementById("rutaImagenLocal1").addEventListener("change", function() {actualizaImagenGrabado("rutaImagenLocal1", "imagenLocal1");});
+    document.getElementById("rutaImagenLocal2").addEventListener("change", function() {actualizaImagenGrabado("rutaImagenLocal2", "imagenLocal2");});
+    document.getElementById("borraImagen1").addEventListener("click", function() {borraImagenGrabado("rutaImagenLocal1", "imagenLocal1");});
+    document.getElementById("borraImagen2").addEventListener("click", function() {borraImagenGrabado("rutaImagenLocal2", "imagenLocal2");});
    </script>
 </body>
 </html>
