@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 // CONSOLA DE PHP
 function consola($data) {
@@ -14,7 +15,6 @@ include "bases.php";
 ?>
 
 <!-- ENCABEZADO DE LA PAGINA -->
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -74,16 +74,19 @@ include "bases.php";
     <img src="imagenes/LogoVortice.png" alt="Imagen 2" id="imagenLocal2" width="100px">
     <input type="button" value="Borrar" id = "borraImagen2">
    </div>
+   
 
    <!-- FORMA A SER ENVIADA -->
    <form action="#" id="formaCompra">
-    <input type="hidden" name="modelo" id="formaModelo" value="Modelo">
-    <input type="hidden" name="color" id="formaColor" value="Color">
-    <input type="hidden" name="texto1" id="formaDescripcion1" value="Descripcion">
-    <input type="hidden" name="imagen2" id="formaImagen2" value="Imagen">
-    <input type="hidden" name="texto2" id="formaDescripcion2" value="Descripcion">
-    <input type="hidden" name="imagen2" id="formaImagen2" value="Imagen">
-    <input type="submit" value="Agregar">
+    <input type="hidden" name="modelo" id="formaModelo" value="1">
+    <input type="hidden" name="color" id="formaColor" value="">
+    <input type="hidden" name="grabados" id="formaGrabados" value="0">
+    <input type="hidden" name="precio" id="formaPrecio" value="0">
+    <input type="hidden" name="texto1" id="formaDescripcion1" value="">
+    <input type="hidden" name="imagen2" id="formaImagen1" value="">
+    <input type="hidden" name="texto2" id="formaDescripcion2" value="">
+    <input type="hidden" name="imagen2" id="formaImagen2" value="">
+    <input type="submit" value="Agregar al Carrito" id="formaBoton" disabled>
    </form>
 
    <!-- JAVASCRIPT -->
@@ -102,6 +105,12 @@ include "bases.php";
     precioFinal = 0;
     precioModelo = 0;
     precioGrabado = 0;
+    textoFinal = [];
+    imagenFinal =[];
+    banderaColor = 0;
+    banderaGrabados = 2;
+    banderaTexto = []
+    banderaFinal = 0;
     infoFinal = document.getElementById("informacionSeleccionado");
     
     //SELECTOR DE EVENTOS
@@ -110,10 +119,19 @@ include "bases.php";
     document.getElementById("selectorModelo").addEventListener("change", function() {actualizaPrecios();});
     document.getElementById("selectorGrabados").addEventListener("change", function() {seccionesGrabado();});
     document.getElementById("selectorGrabados").addEventListener("change", function() {actualizaPrecios();});
-    document.getElementById("rutaImagenLocal1").addEventListener("change", function() {actualizaImagenGrabado("rutaImagenLocal1", "imagenLocal1");});
-    document.getElementById("rutaImagenLocal2").addEventListener("change", function() {actualizaImagenGrabado("rutaImagenLocal2", "imagenLocal2");});
+    document.getElementById("rutaImagenLocal1").addEventListener("change", function() {actualizaImagenGrabado(1);});
+    document.getElementById("rutaImagenLocal2").addEventListener("change", function() {actualizaImagenGrabado(2);});
     document.getElementById("borraImagen1").addEventListener("click", function() {borraImagenGrabado("rutaImagenLocal1", "imagenLocal1");});
     document.getElementById("borraImagen2").addEventListener("click", function() {borraImagenGrabado("rutaImagenLocal2", "imagenLocal2");});
+    document.getElementById("descripcion1").addEventListener("blur", function() {actualizaTexto(1);});
+    document.getElementById("descripcion2").addEventListener("blur", function() {actualizaTexto(2);});
+    cambiaImagen();
+    actualizaColores();
+    actualizaPrecios();
+    seccionesGrabado();
+    actualizaTexto(1);
+    actualizaTexto(2);
+    validaForma();
    </script>
 </body>
 </html>
