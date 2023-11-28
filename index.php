@@ -9,6 +9,8 @@ function consola($data) {
     echo "<script>console.log('PHP: " . $output . "' );</script>";
 }
 
+session_start();
+$_SESSION['carrito'] = TRUE;
 include "conector.php";
 include "bases.php";
 
@@ -77,7 +79,7 @@ include "bases.php";
    
 
    <!-- FORMA A SER ENVIADA -->
-   <form action="#" id="formaCompra">
+   <form action="agregar_carrito.php" id="formaCompra">
     <input type="hidden" name="modelo" id="formaModelo" value="1">
     <input type="hidden" name="color" id="formaColor" value="">
     <input type="hidden" name="grabados" id="formaGrabados" value="0">
@@ -121,8 +123,8 @@ include "bases.php";
     document.getElementById("selectorGrabados").addEventListener("change", function() {actualizaPrecios();});
     document.getElementById("rutaImagenLocal1").addEventListener("change", function() {actualizaImagenGrabado(1);});
     document.getElementById("rutaImagenLocal2").addEventListener("change", function() {actualizaImagenGrabado(2);});
-    document.getElementById("borraImagen1").addEventListener("click", function() {borraImagenGrabado("rutaImagenLocal1", "imagenLocal1");});
-    document.getElementById("borraImagen2").addEventListener("click", function() {borraImagenGrabado("rutaImagenLocal2", "imagenLocal2");});
+    document.getElementById("borraImagen1").addEventListener("click", function() {borraImagenGrabado(1);});
+    document.getElementById("borraImagen2").addEventListener("click", function() {borraImagenGrabado(2);});
     document.getElementById("descripcion1").addEventListener("blur", function() {actualizaTexto(1);});
     document.getElementById("descripcion2").addEventListener("blur", function() {actualizaTexto(2);});
     cambiaImagen();

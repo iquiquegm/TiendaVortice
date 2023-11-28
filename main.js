@@ -23,6 +23,7 @@
     //ACTUALIZA EL CATALOGO DE COLORES
     function actualizaColores(){
     console.log("Actualización de colores.");
+    document.getElementById("formaColor").value = "";
     modeloSeleccionado = selector.selectedOptions[0].value;
     document.querySelectorAll(".muestraColor").forEach(function(color) {
         color.style.display = "none";
@@ -82,7 +83,7 @@
         precioFinal = precioModelo + precioGrabado;
         textoPrecio = "$" + precioFinal + ".00";
         document.getElementById("precioSeleccionado").innerHTML = textoPrecio;
-        document.getElementById("formaPrecio").value = textoPrecio;
+        document.getElementById("formaPrecio").value = precioFinal;
     }
 
     //CAPTURA DEL TEXTO DE GRABADOS
@@ -97,6 +98,7 @@
         }
         console.log(banderaTexto[selector - 1]);
         validaForma();
+        document.getElementById("formaDescripcion" + selector).value = textoTemp;
     }
 
     //ACTUALIZA LA IMAGEN DEL GRABADO
@@ -115,14 +117,17 @@
             console.log("Tipo de archivo no válido.");
         }
         imagenFinal[selector] = archivo;
+        document.getElementById("formaImagen" + selector).value = archivo;
         console.log(imagenFinal[selector]);
     }
 
     //BORRA IMAGEN DE GRABADO
-    function borraImagenGrabado(fuente, imagen) {
+    function borraImagenGrabado(selector) {
         console.log("Borra imagen de grabado.");
-        document.getElementById(fuente).value = [];
-        document.getElementById(imagen).src = "imagenes/LogoVortice.png";
+        document.getElementById("rutaImagenLocal" + selector).value = [];
+        document.getElementById("imagenLocal" + selector).src = "imagenes/LogoVortice.png";
+        imagenFinal[selector] = "";
+        document.getElementById("formaImagen" + selector).value = "";
     }
 
     //ACTIVACION O DESACTIVACION DE BOTON ENVIAR
@@ -130,7 +135,8 @@
         console.log("Valida Forma.");
         botonEnvio = document.getElementById("formaBoton");
         banderaFinal = banderaColor + banderaGrabados + banderaTexto[0] + banderaTexto[1];
-        console.log(banderaFinal);
+        console.log(banderaGrabados);
+        console.log(banderaTexto[0]);
         if (banderaFinal < 3) {
             botonEnvio.disabled = true;
         } else {
