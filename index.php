@@ -62,9 +62,10 @@ include "bases.php";
    </select>
 
    <!-- CAPTURA DE DATOS DE GRABADO 1 -->
+   <form action="agregar_carrito.php" id="formaCompra" method="GET" enctype="multipart/form-data">
    <div id="informacionGrabado1" style="display:none;">
     <textarea name="Descrippcion1" id="descripcion1" cols="30" rows="10" placeholder="Escriba la descripción de su grabado."></textarea>
-    <input type="file" name="ImagenLocal1" id="rutaImagenLocal1" accept="image">
+    <input type="file" name="imagenLocal1" id="rutaImagenLocal1" accept="image">
     <img src="imagenes/LogoVortice.png" alt="Imagen 1" id="imagenLocal1" width="100px">
     <input type="button" value="Borrar" id = "borraImagen1">    
    </div>
@@ -72,20 +73,19 @@ include "bases.php";
    <!-- CAPTURA DE DATOS DE GRABADO 2 -->
    <div id="informacionGrabado2" style="display:none;">
     <textarea name="Descrippcion2" id="descripcion2" cols="30" rows="10" placeholder="Escriba la descripción de su grabado."></textarea>
-    <input type="file" name="ImagenLocal2" id="rutaImagenLocal2" accept="image">
+    <input type="file" name="imagenLocal2" id="rutaImagenLocal2" accept="image">
     <img src="imagenes/LogoVortice.png" alt="Imagen 2" id="imagenLocal2" width="100px">
     <input type="button" value="Borrar" id = "borraImagen2">
    </div>
    
 
    <!-- FORMA A SER ENVIADA -->
-   <form action="agregar_carrito.php" id="formaCompra">
     <input type="hidden" name="modelo" id="formaModelo" value="1">
     <input type="hidden" name="color" id="formaColor" value="">
     <input type="hidden" name="grabados" id="formaGrabados" value="0">
     <input type="hidden" name="precio" id="formaPrecio" value="0">
     <input type="hidden" name="texto1" id="formaDescripcion1" value="">
-    <input type="hidden" name="imagen2" id="formaImagen1" value="">
+    <input type="hidden" name="imagen1" id="formaImagen1" value="">
     <input type="hidden" name="texto2" id="formaDescripcion2" value="">
     <input type="hidden" name="imagen2" id="formaImagen2" value="">
     <input type="submit" value="Agregar al Carrito" id="formaBoton" disabled>
