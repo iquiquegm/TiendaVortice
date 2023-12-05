@@ -9,8 +9,16 @@ function consola($data) {
     echo "<script>console.log('PHP: " . $output . "' );</script>";
 }
 
+//VERIFICACION DE DATOS DE SESION
 session_start();
-$_SESSION['carrito'] = TRUE;
+$_SESSION['telefono'] = NULL;
+if (isset($_POST['telefono'])){
+    $_SESSION['telefono'] = $_POST['telefono'];
+} 
+if (!isset($_SESSION['telefono'])) {    
+    header("Location: login.php");
+    die();
+}
 include "conector.php";
 include "bases.php";
 

@@ -11,7 +11,7 @@ function consola($data) {
 session_start();
 
 // Check if a session variable is set
-if (isset($_SESSION['carrito'])) {
+if (isset($_SESSION['telefono'])) {
   // If not, set a session variable
  echo "Sesión abierta.<br>";
  include "conector.php";
