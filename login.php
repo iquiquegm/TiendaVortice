@@ -14,7 +14,6 @@ function consola($data) {
 session_start();
 if (isset($_SESSION['telefono'])) {
     consola("Si hay datos de sesión.");
-    sleep(3);
     header("Location: index.php");
     die();
 }
@@ -51,7 +50,7 @@ consola("Clientes leídos con éxito.");
         <label for="nombre">Nombre: </label>
         <input type="text" id="nombre" name="nombre">
         <input type="hidden" name="existente" value="false">
-        <input type="submit" value="Aceptar" id="aceptar" disabled>
+        <input type="submit" value="Aceptar" id="aceptar" >
     </form>
 
     <!-- JAVASCRIPT -->
@@ -69,7 +68,7 @@ consola("Clientes leídos con éxito.");
                 document.getElementById('correo').disabled = true;
                 document.getElementById('nombre').disabled = true;
                 document.getElementById('aceptar').disabled = false;
-                document.getElementById('existente').value = true;
+                document.getElementById('existente').value = "true";
                 break;
             }
 }

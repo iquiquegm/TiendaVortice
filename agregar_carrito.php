@@ -14,6 +14,7 @@ session_start();
 if (isset($_SESSION['telefono'])) {
   // If not, set a session variable
  echo "Sesión abierta.<br>";
+ echo "Teléfono: ". $_SESSION['telefono']. "<br>";
  include "conector.php";
  include "bases.php";
  $producto = $productos[$_GET["modelo"] - 1]["descripcion"];
@@ -26,5 +27,6 @@ if (isset($_SESSION['telefono'])) {
 } else {
     echo ("No hay sesión.");
 }
-
+session_unset();
+session_destroy();
 ?>

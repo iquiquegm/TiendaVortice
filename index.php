@@ -11,7 +11,6 @@ function consola($data) {
 
 //VERIFICACION DE DATOS DE SESION
 session_start();
-$_SESSION['telefono'] = NULL;
 if (isset($_POST['telefono'])){
     $_SESSION['telefono'] = $_POST['telefono'];
 } 
