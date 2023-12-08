@@ -13,30 +13,34 @@ session_start();
 // VERIFICA SI EXISTE EL CLIENTE
 if ($_POST['existente'] == "true") {
     $_SESSION['telefono'] = $_POST['telefono'];
-    // header("Location: index.php");
-    echo "Si existe.";
+    $_SESSION['nombre'] = $_POST['nombre'];
+    $_SESSION['correo'] = $_POST['correo'];
+    echo "Ya existe el registro.";
+    header("Location: index.php");
     die();    
 }
 echo "No existe el registro.";
 include "conector.php";
 
-// Prepare the SQL statement
-$sql = "INSERT INTO clientes (nombre, whatsapp, correo) VALUES (?,?,?)";
-echo "Preparando...";
+// Validate email address
+$correo = $_POST['correo'];
 
-// Bind the parameters
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("sss", $_POST['nombre'], $_POST['telefono'], $_POST['correo']);
-echo "<br>". $_POST['nombre']. "<br>";
+$nombre = $_POST['nombre'];
+$whatsapp = $_POST['telefono'];
+echo $_POST['correo'];
+echo "<br>". $nombre. " ". $whatsapp. " ". $correo. "<br>";
+$sql = "INSERT INTO clientes (id, nombre, whatsapp, correo)
+VALUES (NULL, '$nombre', '$whatsapp', '$correo')";
 
-// Execute the statement
-$stmt->execute();
-echo "Ejecutando...<br>";
-
-// Close the statement and connection
-$stmt->close();
-$conn->close();
-
-echo "Agregado.";
+if (mysqli_query($conn, $sql)) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+mysqli_close($conn);
+$_SESSION['telefono'] = $whatsapp;
+$_SESSION['nombre'] = $nombre;
+header("Location: index.php");
+    die();
 ?>
 

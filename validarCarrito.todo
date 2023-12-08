@@ -1,0 +1,25 @@
+verificar sesion:
+    ✔ No existe sesion @done (7/12/2023, 15:55:35)
+    ☐ Obtener datos necesarios
+agregar articulo:
+    ☐ Crear registro
+    Leer datos del pedido:
+        ☐ Imagen del modelo
+        ☐ Información del modelo
+        Verificación de grabado:
+            Grabado 1:
+                ☐ Descripcion
+                ☐ Imagen
+            Grabado 2:
+                ☐ Descripción
+                ☐ Imagen
+            ☐ Subir imagenes
+        Campo de cantidad:
+            ☐ Ajustar cantidad localmente
+        ☐ Precio
+    ☐ Boton de eliminar
+verificar existe carrito:
+    No existe carrito:
+        ☐ Crear un carrito nuevo
+    Existe carrito:
+        ☐ Asignar producto a carrito

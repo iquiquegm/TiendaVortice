@@ -11,16 +11,18 @@ function consola($data) {
 
 //VERIFICACION DE DATOS DE SESION
 session_start();
-if (isset($_POST['telefono'])){
-    $_SESSION['telefono'] = $_POST['telefono'];
-} 
+// if (isset($_SESSION['telefono'])){
+//     $_SESSION['telefono'] = $_POST['telefono'];
+//     $_SESSION['nombre'] = $_POST['nombre'];
+//     $_SESSION['correo'] = $_POST['correo'];
+// } 
 if (!isset($_SESSION['telefono'])) {    
     header("Location: login.php");
     die();
 }
 include "conector.php";
 include "bases.php";
-
+echo "Cliente: ". $_SESSION['nombre'];
 ?>
 
 <!-- ENCABEZADO DE LA PAGINA -->
@@ -33,6 +35,7 @@ include "bases.php";
 
 <!-- CUERPO DE LA PAGINA -->
 <body>
+    <div id="user"></div>
    <img src="imagenes/LogoVortice.png" width="100px" alt="Modelo Seleccionado" id="imagenModelo">
    <div id="informacionSeleccionado" style="display: none;">
     Modelo, Color y Cantidad de Grabados

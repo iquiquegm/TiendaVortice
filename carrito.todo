@@ -1,0 +1,14 @@
+
+Subtotal:
+    ☐ Sumar precios de artículos
+Descuento:
+    ☐ Verificar si existe descuento
+    ☐ Aplicar descuento
+Total:
+    ☐ Restar descuento a subtotal
+Boton "Seguir Comprando":
+    ☐ Guarda datos de carrito
+    ☐ Regresa a principal
+Boton "Pagar:
+    ☐ Guarda datos de carrito
+    ☐ Envía a pasarela de pago

@@ -42,14 +42,14 @@ consola("Clientes leídos con éxito.");
 
 <!-- CUERPO DE LA PAGINA -->
 <body>
-    <form action="validaCliente.php" method="post">
+    <form action="validaCliente.php" id="formaEnvio" method="post">
+        <input type="hidden" name="existente" id="existente" value="false" autocomplete="off">
         <label for="telefono">Telefono: </label>
-        <input type="tel" id="telefono" name="telefono" placeholder="123-456-7890" pattern="[0-9]{3}\-[0-9]{3]\-[0-9]{4}" required >
+        <input type="tel" id="telefono" name="telefono" placeholder="123-456-7890" pattern="[0-9]{3}\-[0-9]{3]\-[0-9]{4}" value="" form="formaEnvio" required >
         <label for="correo">Correo: </label>
-        <input type="email" nonmbre="correo" id="correo" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+        <input type="email" name="correo" id="correo"  form="formaEnvio" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
         <label for="nombre">Nombre: </label>
-        <input type="text" id="nombre" name="nombre">
-        <input type="hidden" name="existente" value="false">
+        <input type="text" id="nombre" name="nombre" form="formaEnvio">
         <input type="submit" value="Aceptar" id="aceptar" >
     </form>
 
@@ -57,19 +57,27 @@ consola("Clientes leídos con éxito.");
 
     <script>
         clientes = <?php echo json_encode($clientes); ?>;
+        clienteExistente = document.getElementById("existente");
+        // clienteExistente.value = "true";
+        campoCorreo = document.getElementById('correo');
+        campoNombre = document.getElementById('nombre');
 
         //COMPARA TELEFONO CON REGISTRO EXISTENTE
         function buscaRegistro(numero) {
             console.log(numero);
             for (let i = 0; i < clientes.length; i++) {
             if (clientes[i].whatsapp === numero) {
-                document.getElementById('correo').value = clientes[i].correo;
-                document.getElementById('nombre').value = clientes[i].nombre;
-                document.getElementById('correo').disabled = true;
-                document.getElementById('nombre').disabled = true;
+                campoCorreo.value = clientes[i].correo;
+                console.log(campoCorreo.value);
+                campoNombre.value = clientes[i].nombre;
+                console.log(campoNombre.value);
+                document.getElementById('correo').readOnly = true;
+                document.getElementById('nombre').readOnly = true;
                 document.getElementById('aceptar').disabled = false;
-                document.getElementById('existente').value = "true";
+                clienteExistente.value = "true";
                 break;
+            } else {
+                clienteExistente.value = "false";
             }
 }
     }
@@ -99,6 +107,10 @@ telefonoInput.addEventListener('input', function() {
     telefonoInput.value = telefonoNoFormat;
   }
 });
+
+function cambiaStatus() {
+    console.log("Campo: " + this.value);
+}
 
 
     </script>
