@@ -11,11 +11,6 @@ function consola($data) {
 
 //VERIFICACION DE DATOS DE SESION
 session_start();
-// if (isset($_SESSION['telefono'])){
-//     $_SESSION['telefono'] = $_POST['telefono'];
-//     $_SESSION['nombre'] = $_POST['nombre'];
-//     $_SESSION['correo'] = $_POST['correo'];
-// } 
 if (!isset($_SESSION['telefono'])) {    
     header("Location: login.php");
     die();
