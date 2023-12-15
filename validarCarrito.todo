@@ -1,6 +1,6 @@
 verificar sesion:
     ✔ No existe sesion @done (7/12/2023, 15:55:35)
-    ☐ Obtener datos necesarios
+    ✔ Obtener datos necesarios @done (13/12/2023, 9:41:11)
 agregar articulo:
     ☐ Crear registro
     Leer datos del pedido:
@@ -13,7 +13,7 @@ agregar articulo:
             Grabado 2:
                 ☐ Descripción
                 ☐ Imagen
-            ☐ Subir imagenes
+            ✔ Subir imagenes @done (13/12/2023, 17:29:21)
         Campo de cantidad:
             ☐ Ajustar cantidad localmente
         ☐ Precio

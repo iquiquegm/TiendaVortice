@@ -67,7 +67,7 @@ echo "Cliente: ". $_SESSION['nombre'];
    </select>
 
    <!-- CAPTURA DE DATOS DE GRABADO 1 -->
-   <form action="agregar_carrito.php" id="formaCompra" method="GET" enctype="multipart/form-data">
+   <form action="agregar_carrito.php" id="formaCompra" method="post" enctype="multipart/form-data">
    <div id="informacionGrabado1" style="display:none;">
     <textarea name="Descrippcion1" id="descripcion1" cols="30" rows="10" placeholder="Escriba la descripción de su grabado."></textarea>
     <input type="file" name="imagenLocal1" id="rutaImagenLocal1" accept="image">
