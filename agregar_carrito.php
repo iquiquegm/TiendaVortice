@@ -53,9 +53,9 @@ $foto = "imagenes/". $productos[$modelo]['nombre'] . ".png";
 echo $foto;
 echo "<img src='".$foto."'>";
 
-//CARGA DE IMAGENES
-// Check if the form was submitted
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+//DATOS DE GRABADO
+if ($grabados > 0) {
+    echo "Descripcion 1: ". $articulo['texto1'];
     // Check if a file was selected for upload
     if (isset($_FILES["imagenLocal1"])) {
         echo $_FILES['imagenLocal1'];
@@ -88,6 +88,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         echo "No file selected for upload.";
     }
+    if ($grabados == 2) {
+        echo "Descripcion 2: ". $articulo['texto2'];
     // Check if a file was selected for upload
     if (isset($_FILES["imagenLocal2"])) {
         echo $_FILES['imagenLocal2'];
@@ -120,7 +122,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         echo "No file selected for upload.";
     }
+    }
+} else {
+    $articulo['texto1'] = "";
+    $articulo['imagen1'] = "";
+    $srticulo['texto2'] = "";
+    $articulo['imagen2'] = "";
 }
+
+if (!isset($_SESSION['carrito'])) {
+    $_SESSION['carrito'] = [];
+}
+
+
+$_SESSION['carrito'][] = $articulo;
+$_SESSION['cuentaCarrito'] = $_SESSION['cuentaCarrito'] + 1;
+$_SESSION['modeloCarrito'] = $modelo;
+$_SESSION['colorCarrito'] = $color;
+header("Location: carrito.php");
+exit();
 
 session_unset();
 session_destroy();

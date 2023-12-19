@@ -17,6 +17,32 @@ if (!isset($_SESSION['telefono'])) {
 }
 include "conector.php";
 include "bases.php";
+if (isset($_SESSION['modeloCarrito'])) {
+    $existencias = $_SESSION['existencias'];
+    // Find the index of the row that matches the conditions
+$foundIndex = -1; // Default value if not found
+
+foreach ($existencias as $index => $row) {
+    if ($row['id_producto'] === $_SESSION['modeloCarrito'] && $row['id_color'] === $_SESSION['colorCarrito']) {
+        $foundIndex = $index;
+        break; // Exit the loop once a match is found
+    }
+}
+
+// If a matching row is found, update the 'cantidad' value
+if ($foundIndex !== -1) {
+    $existencias[$foundIndex]['cantidad'] -= 1;
+    // Optionally, handle the case where 'cantidad' becomes negative if needed
+    $_SESSION['existencias'] = $existencias;
+}
+
+} else {
+    $_SESSION['existencias'] = $existencias;
+}
+
+//VERIFICA SI HAY QUE DESCONTAR EXISTENCIA
+echo "Carrito: ". $_SESSION['cuentaCarrito'];
+
 echo "Cliente: ". $_SESSION['nombre'];
 ?>
 

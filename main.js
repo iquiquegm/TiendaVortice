@@ -29,7 +29,7 @@
         color.style.display = "none";
     });
     existencias.forEach(function(modelo) {
-        if (modelo.id_producto == modeloSeleccionado) {
+        if (modelo.id_producto == modeloSeleccionado && modelo.cantidad > 0) {
             colorModelo = modelo.id_color;
             document.getElementById(colorModelo).style.display = "inline-block";
             document.getElementById("cantidad" + colorModelo).innerHTML = modelo.cantidad;

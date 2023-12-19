@@ -4,8 +4,8 @@ verificar sesion:
 agregar articulo:
     ☐ Crear registro
     Leer datos del pedido:
-        ☐ Imagen del modelo
-        ☐ Información del modelo
+        ✔ Imagen del modelo @done (18/12/2023, 9:32:57)
+        ✔ Información del modelo @done (18/12/2023, 9:33:11)
         Verificación de grabado:
             Grabado 1:
                 ☐ Descripcion
