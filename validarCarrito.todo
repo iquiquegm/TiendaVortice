@@ -9,10 +9,10 @@ agregar articulo:
         Verificación de grabado:
             Grabado 1:
                 ☐ Descripcion
-                ☐ Imagen
+                ✔ Imagen @done (24/1/2024, 17:25:24)
             Grabado 2:
                 ☐ Descripción
-                ☐ Imagen
+                ✔ Imagen @done (24/1/2024, 17:25:27)
             ✔ Subir imagenes @done (13/12/2023, 17:29:21)
         Campo de cantidad:
             ☐ Ajustar cantidad localmente
