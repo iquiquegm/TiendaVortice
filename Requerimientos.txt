@@ -1,0 +1,6 @@
+Lista de Modelos
+Lista de Precios
+Lista de Colores
+Imágenes de los modelos
+
+Uso de la API de Clip

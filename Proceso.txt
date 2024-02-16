@@ -1,0 +1,50 @@
+Conectar con Base de datos
+Verificar si existe una sesión abierta
+	No:
+		Solicitar nombre de teléfono, correo y nombre
+		Validar si existe teléfono
+			No:
+				Agregar registro nuevo
+		Iniciar sesión
+Cargar Información de Modelos, Colores y Existencias
+Mostrar todos los modelos
+Seleccionar Modelo
+Calcula precio
+Mostrar los colores disponibles y la cantidad del modelo seleccionado
+Seleccionar Color
+Mostrar selector de número de grabados
+Seleccionar número de grabados
+Calcula precio
+Verificar número de grabados seleccionados
+	Mayor que 0:
+		Capturar texto descriptivo
+		Opción para cargar imagen
+		Verificar si selecciona imagen:
+			Si:
+				Selecciona imagen local
+				Muestra imagen local
+		Número de grabados es igual a 2
+			Si:
+				Seleccionar imagen local
+				Mostrar imagen local
+	Verifica que campos de texto descriptivo no estén en blanco
+		No están en blanco:
+			Habilita boton de Agregar a Carrito
+Seleccionar botón Agregar a Carrito
+Verificar si existe carrito
+	No existe carrito:
+		Crear nuevo carrito
+Agregar producto a carrito
+Mostrar Modelo, Color, Texto descriptivo(s), Imágen(es) y precio
+Calcular precio total
+Botón para eliminar producto
+Boton presionado
+	Si
+		Borrar información de producto del carrito
+		Calcular precio total
+Botón Agregar otro Producto
+	Presionado:
+		Regresar a Selección de modelo
+Botón Pagar
+	Presionado:
+		Proceso de pasarela de pago de Clip

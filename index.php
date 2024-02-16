@@ -57,7 +57,7 @@ echo "Cliente: ". $_SESSION['nombre'];
 <!-- CUERPO DE LA PAGINA -->
 <body>
     <div id="user"></div>
-   <img src="imagenes/LogoVortice.png" width="100px" alt="Modelo Seleccionado" id="imagenModelo">
+   <img src="imagenes/LogoVortice.png" width="300px" alt="Modelo Seleccionado" id="imagenModelo">
    <div id="informacionSeleccionado" style="display: none;">
     Modelo, Color y Cantidad de Grabados
    </div>

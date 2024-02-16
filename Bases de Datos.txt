@@ -1,0 +1,45 @@
+Tablas
+	Clientes
+		Teléfono
+		Correo
+		Nombre
+
+	Modelos
+		Nombre
+		Descripción
+		Precio
+		Foto
+
+	Colores
+		Nombre
+		Valores
+
+	Productos
+		Modelo
+		Color
+		Cantidad
+
+	Grabados
+		Descripción
+		Precio
+
+	Carrito
+		Cliente
+		Fecha
+		Subtotal
+		Descuento
+		Total
+
+	Ventas
+		Carrito
+		Fecha
+		Producto
+		Cantidad
+		Grabados
+		Texto 1
+		Imagen 1
+		Texto 2
+		Imagen 2
+		Subtotal
+		Descuento
+		Total
